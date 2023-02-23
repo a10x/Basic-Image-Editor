@@ -11,7 +11,7 @@ st.title("Basic Image Editor :sparkles:")
 # sidebar with filter options
 with st.sidebar:
     st.header("Filters:")
-    image_filter = st.radio("Select Filters here:", ('None (Default)','Greyscale', 'Rainbow Noise (Grainy texture)', 'Blur'))
+    image_filter = st.radio("Select Filters here:", ('None (Default)','Greyscale', 'Rainbow Noise (Grainy texture)', 'Blur', 'Sepia'))
 
 # image uploader
 uploaded_image = st.file_uploader("Upload your image here", type=['jpg','png','jpeg'])
@@ -33,6 +33,30 @@ if uploaded_image:
         plt.subplot(4, 3, 2)
         grainy_img = skimage.util.random_noise(edited_image, mode="localvar")
         edited_image = grainy_img
+    
+    elif image_filter == 'Sepia':
+        w, h = edited_image.size
+        pixels = edited_image.load()
+
+        for py in range(h):
+            for px in range(w):
+                r, g, b = edited_image.getpixel((px, py))
+
+                tr = int(0.393 * r + 0.769 * g + 0.189 * b)
+                tg = int(0.349 * r + 0.686 * g + 0.168 * b)
+                tb = int(0.272 * r + 0.534 * g + 0.131 * b)
+
+                if tr > 255:
+                    tr = 255
+
+                if tg > 255:
+                    tg = 255
+
+                if tb > 255:
+                    tb = 255
+
+                pixels[px, py] = (tr,tg,tb)
+
 
     # view before and after
     col1, col2 = st.columns(2)

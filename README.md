@@ -12,7 +12,7 @@ Created to learn the basics of Streamlit
 - Colour change filter
 - brightness adjustment
 - Contrast adjustment
-- Sepia filter
+- ~~Sepia filter~~
 
 ## How to install and use
 
