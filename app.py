@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image, ImageFilter
+from PIL import Image, ImageFilter, ImageEnhance
 import skimage
 import matplotlib.pyplot as plt
 
@@ -11,7 +11,7 @@ st.title("Basic Image Editor :sparkles:")
 # sidebar with filter options
 with st.sidebar:
     st.header("Filters:")
-    image_filter = st.radio("Select Filters here:", ('None (Default)','Greyscale', 'Rainbow Noise (Grainy texture)', 'Blur', 'Sepia'))
+    image_filter = st.radio("Select Filters here:", ('None (Default)','Greyscale', 'Rainbow Noise (Grainy texture)', 'Blur', 'Sepia', 'Contrast'))
 
 # image uploader
 uploaded_image = st.file_uploader("Upload your image here", type=['jpg','png','jpeg'])
@@ -57,6 +57,14 @@ if uploaded_image:
 
                 pixels[px, py] = (tr,tg,tb)
 
+    elif image_filter == 'Contrast':
+        enhancer = ImageEnhance.Contrast(edited_image)
+
+        st.caption("1 is normal value, anything below will make the picture more 'dull', anything above will make the image more saturated")
+        intensity = st.slider("contrast intensity:", 1.2, 1.5, 0.5)
+        edited_image = enhancer.enhance(intensity)
+
+
 
     # view before and after
     col1, col2 = st.columns(2)
@@ -69,5 +77,4 @@ if uploaded_image:
         st.image(edited_image)
 
 
-# note edit css so this is a footer
 st.caption("Created by [Tasnim Begom](https://github.com/tasnmb) :frog:")

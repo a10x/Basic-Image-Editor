@@ -11,7 +11,7 @@ Created to learn the basics of Streamlit
 ## Todo
 - Colour change filter
 - brightness adjustment
-- Contrast adjustment
+- ~~Contrast adjustment~~
 - ~~Sepia filter~~
 
 ## How to install and use
