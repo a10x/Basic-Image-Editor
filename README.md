@@ -1,7 +1,7 @@
-# Basic-Image-Editor
-A basic image editor created with Python (Mainly using PIL and [Streamlit](https://streamlit.io/))
+# SuperDuperInsanelySophisticated-Image-Editor
+A SuperDuperInsanelySophisticated image editor created with Python (Mainly using PIL and [Streamlit](https://streamlit.io/))
 
-Created to learn the basics of Streamlit
+Created to learn the advanced features of Streamlit
 
 ## Current Features
 - Greyscale

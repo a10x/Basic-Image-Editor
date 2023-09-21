@@ -3,10 +3,10 @@ from PIL import Image, ImageFilter, ImageEnhance
 import skimage
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="Basic Image Editor!", page_icon=":pencil:")
+st.set_page_config(page_title="SuperDuperInsanelySophisticated Image Editor!", page_icon=":pencil:")
 
 # header
-st.title("Basic Image Editor :sparkles:")
+st.title("SuperDuperInsanelySophisticated Image Editor :sparkles:")
 
 # sidebar with filter options
 with st.sidebar:
